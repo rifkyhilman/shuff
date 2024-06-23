@@ -51,13 +51,10 @@ const UserController = {
     },
 
     logout: (req,res)=>{
-
-        req.session.destory((err)=>{
+        req.session.destroy((err)=>{
             if(err) console.log(err);
-            //session akan di unset
-            //dan user akan di kembalikan ke halaman login
             res.redirect('/login')
-        })
+        });
 
     }
 
