@@ -4,7 +4,8 @@
   "description": "phtograper website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/main.js"
   },
   "author": "Muhamad Rifki Hilman",
   "license": "ISC",
@@ -13,7 +14,8 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "req-flash": "^0.0.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

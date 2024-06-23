@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:ital@1&display=swap');
+
+/* Colors */
+:root {
+  --color-primary: #008374;
+}
+
+
+a {
+    color:var(--color-primary);
+    text-decoration: none;
+  }
+  
+a:hover {
+    color: #00b6a1;
+    text-decoration: none;
+}
+
+
+.header {
+    transition: all 0.5s;
+    z-index: 997;
+    height: 90px;
+    background-color:var(--color-primary);
+  }
+  
+.header.sticked {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 70px;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header .logo img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .header .logo h1 {
+    font-size: 30px;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    color: #fff;
+    font-family: var(--font-primary);
+  }
+  
+  .header .logo h1 span {
+    color: #f96f59;
+  }
+  
+  .sticked-header-offset {
+    margin-top: 70px;
+  }
+
+
+  /*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #fff;
+  border-color: var(--color-primary) transparent var(--color-primary) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumbs .page-header {
+  padding: 60px 0 60px 0;
+  min-height: 20vh;
+  position: relative;
+  background-color: var(--color-primary);
+}
+
+.breadcrumbs .page-header h2 {
+  font-size: 56px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.breadcrumbs .page-header p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.breadcrumbs nav {
+  background-color: #f6f6f6;
+  padding: 20px 0;
+}
+
+.breadcrumbs nav ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+}
+
+.breadcrumbs nav ol a {
+  color: var(--color-primary);
+  transition: 0.3s;
+}
+
+.breadcrumbs nav ol a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs nav ol li+li {
+  padding-left: 10px;
+}
+
+.breadcrumbs nav ol li+li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #f85a40;
+  content: "/";
+}
+
+/*--------------------------------------------------------------
+# Blog Details
+--------------------------------------------------------------*/
+.container {
+    padding: 0 50px 0 50px;
+}
+.blog {
+    margin: 120px 0 120px 0 ;
+}
+
+.post-img img {
+  width: 100%;
+}
+
+.blog .blog-details {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .blog .blog-details .post-img {
+    margin: -30px -30px 20px -30px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .blog .blog-details .title {
+    font-size: 28px;
+    font-weight: 700;
+    padding: 0;
+    margin: 20px 0 0 0;
+    color: var(--color-default);
+  }
+  
+  .blog .blog-details .content {
+    margin-top: 20px;
+  }
+  
+  .blog .blog-details .content h3 {
+    font-size: 22px;
+    margin-top: 30px;
+    font-weight: bold;
+  }
+  
+  .blog .blog-details .content blockquote {
+    overflow: hidden;
+    background-color: rgba(34, 34, 34, 0.06);
+    padding: 60px;
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .blog .blog-details .content blockquote p {
+    color: var(--color-default);
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 22px;
+  }
+  
+  .blog .blog-details .content blockquote:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--color-secondary);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+
+  .blog .blog-details .meta-top {
+    margin-top: 20px;
+    color: #6c757d;
+  }
+  
+  .blog .blog-details .meta-top ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .blog .blog-details .meta-top ul li+li {
+    padding-left: 20px;
+  }
+  
+  .blog .blog-details .meta-top i {
+    font-size: 16px;
+    margin-right: 8px;
+    line-height: 0;
+    color: var(--color-primary);
+  }
+
+ 
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer {
+    font-size: 14px;
+    background-color: var(--color-primary);
+    padding: 50px 0;
+    color: white;
+  }
+
+.footer-info {
+  display: flex;
+  justify-content: center;
+  padding-right: 80px;
+}
+
+.footer .footer-info .logo img {
+  width: 250px;
+  height: 250px;
+}
+
+.footer .footer-info .logo span {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+
+}
+
+.footer .footer-info p {
+  font-size: 14px;
+
+}
+
+
+.footer h4 {
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer .footer-links {
+  margin: 30px 0 0 0;
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-links ul i {
+  padding-right: 2px;
+  color: rgba(0, 131, 116, 0.8);
+  font-size: 12px;
+  line-height: 0;
+}
+
+.footer .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+.footer .footer-links ul a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+.footer .footer-links ul a:hover {
+  color: #fff;
+}
+
+.footer .footer-contact p {
+  line-height: 26px;
+  margin-top: -6px;
+}
+
+.footer .copyright {
+  text-align: center;
+}
