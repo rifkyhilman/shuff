@@ -34,6 +34,7 @@ app.use(function(req, res, next) {
 app.get('/',ViewController.homePage);
 app.get('/login',authMiddleware.authLogin,ViewController.loginPage);
 app.get('/register',authMiddleware.authLogin,ViewController.registerPage);
+app.get('/booking',authMiddleware.authUser,ViewController.bookingPage);
 
 
 app.post('/login',authMiddleware.authLogin,UserController.login);

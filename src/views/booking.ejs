@@ -1,0 +1,39 @@
+<%- include('layout/header') %>
+
+
+<section class="main-content">
+    <div class="section-header">
+      <h2>Booking Your Event</h2>
+    </div>
+    <div class="form-todo">
+
+    <form action="#" id="form">
+        <div class="col form-group">
+          <label for="text">Enter what you plan</label>
+          <input 
+            class="form-control"
+            type="text"
+            name="item"
+            id="item"
+            placeholder="write your plan here"
+            required
+          />
+        </div>
+        <div class="col form-group">
+          <label for="date">Enter the plan date</label>
+          <input class="form-control" type="date" id="date" name="date" required>
+        </div>
+        <div class="submit">
+          <input type="submit" value="Submit" name="Submit" class="btn-submit">
+        </div>
+    </form>
+    <div class="container-order">
+      <div class="section-header-booking">
+        <h2>plan List</h2>
+      </div>   
+      <div class="list-order" id="orders"></div>
+    </div>
+  </div>
+  </section>
+
+<%- include('layout/footer') %>
