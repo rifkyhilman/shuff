@@ -9,13 +9,15 @@ const UserController = {
         //mengambil data dari form
         const fullname = req.body.fullname;
         const username = req.body.username;
-        const password = req.body.password
+        const phone = req.body.phone;
+        const address = req.body.address;
+        const password = req.body.password;
         console.log(password)
         const hashPassword = await bcrypt.hash(password,10); //password akan di hash supaya kata asli tidak terlihat didalam database sehingga lebih aman
 
         //memasukan data kedalam database tabel user
         connection.query(
-            `INSERT INTO users (fullName, username, password) VALUES('${fullname}','${username}','${hashPassword}')`,(err,result)=>{
+            `INSERT INTO users (fullName, username, phone_number, address, password) VALUES('${fullname}','${username}','${phone}','${address}','${hashPassword}')`,(err,result)=>{
                 if(err)throw err //jika error maka akan mengembalikan error
 
                 res.redirect('/login') //jika berhasil akan di alihkan kehalaman login

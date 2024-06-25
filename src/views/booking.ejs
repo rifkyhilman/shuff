@@ -7,32 +7,46 @@
     </div>
     <div class="form-todo">
 
-    <form action="#" id="form">
+    <form action="/booking" id="form" method="post">
         <div class="col form-group">
-          <label for="text">Enter what you plan</label>
+          <label for="eventName">Name of the event</label>
           <input 
             class="form-control"
             type="text"
-            name="item"
-            id="item"
-            placeholder="write your plan here"
+            name="eventName"
+            id="eventName"
+            placeholder="write your event name"
             required
           />
         </div>
         <div class="col form-group">
-          <label for="date">Enter the plan date</label>
+          <label for="date">Event date</label>
           <input class="form-control" type="date" id="date" name="date" required>
         </div>
+        <div class="col form-group">
+            <label for="address">Address of the event</label>
+            <input 
+              class="form-control"
+              type="text"
+              name="address"
+              id="address"
+              placeholder="write your address"
+              required
+            />
+        </div>
+        <div class="col form-group">
+            <label for="package">Select the package</label>
+            <select class="form-select" name="package" aria-label="Default select example">
+                <!-- <option selected>select package</option> -->
+                <option value="Free plan">Free plan</option>
+                <option value="Bussines plan">Bussines plan</option>
+                <option value="Developer plan">Developer plan</option>
+            </select>
+        </div>
         <div class="submit">
-          <input type="submit" value="Submit" name="Submit" class="btn-submit">
+          <input type="submit" value="Booking" name="Submit" class="btn-submit">
         </div>
     </form>
-    <div class="container-order">
-      <div class="section-header-booking">
-        <h2>plan List</h2>
-      </div>   
-      <div class="list-order" id="orders"></div>
-    </div>
   </div>
   </section>
 
