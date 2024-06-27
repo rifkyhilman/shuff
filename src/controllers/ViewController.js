@@ -1,3 +1,5 @@
+const { BokkingController, BookingController } = require('./BookingController');
+
 const ViewController = {
 
     homePage: (req,res)=>{
@@ -14,7 +16,13 @@ const ViewController = {
         res.render('register', { isLogin: req.session.login })
     },
     bookingPage: (req,res)=>{
-        res.render('booking', { isLogin: req.session.login, username: req.session.user   })
+        res.render('booking', { isLogin: req.session.login, username: req.session.user})
+    },
+    historyPage: (req,res)=>{
+        BookingController.getBookingbyId(req, res, data => {        
+            res.render('history', { isLogin: req.session.login, username: req.session.user, data})
+        });
+        
     },
 }
 
