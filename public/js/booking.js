@@ -1,17 +1,18 @@
 const orders = [];
 const RENDER_EVENT = 'render-order';
 const SAVED_EVENT = 'saved-order';
-const STORAGE_KEY = ' ORDERS_LIST';
+const STORAGE_KEY = 'NOTES_LIST';
 
 function generateId() {
   return +new Date();
 }
 
-function generateOrderObject(id, orderName, timeOrder ) {
+function generateOrderObject(id, orderName, timeOrder, name ) {
   return {
     id,
     orderName,
-    timeOrder
+    timeOrder,
+    name 
   }
 }
 
@@ -65,7 +66,7 @@ function loadDataFromStorage() {
 
 
 function makeTodo(orderObject) {
-  const {id, orderName, timeOrder, } = orderObject;
+  const {id, orderName, timeOrder, name} = orderObject;
 
   const textTitle = document.createElement('h3');
   textTitle.innerText = orderName;
@@ -73,9 +74,12 @@ function makeTodo(orderObject) {
   const textTimestamp = document.createElement('p');
   textTimestamp.innerText = timeOrder;
 
+  const textName = document.createElement('p');
+  textName.innerText = `Note from ( ${name} )`;
+
   const textContainer = document.createElement('div');
   textContainer.classList.add('inner');
-  textContainer.append(textTitle, textTimestamp);
+  textContainer.append(textTitle, textTimestamp, textName);
 
   const container = document.createElement('div');
   container.classList.add('order-item');
@@ -96,9 +100,10 @@ function makeTodo(orderObject) {
 function addOrder() {
   const textOrder = document.getElementById('item').value;
   const timeOrder = document.getElementById('date').value;
+  const nameOrder = document.getElementById('name').value;
 
   const generatedID = generateId();
-  const orderObject = generateOrderObject(generatedID, textOrder, timeOrder, false);
+  const orderObject = generateOrderObject(generatedID, textOrder, timeOrder, nameOrder, false);
   orders.push(orderObject);
 
   document.dispatchEvent(new Event(RENDER_EVENT));

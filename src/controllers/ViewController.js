@@ -1,4 +1,4 @@
-const { BokkingController, BookingController } = require('./BookingController');
+const { BookingController } = require('./BookingController');
 
 const ViewController = {
 
@@ -22,8 +22,14 @@ const ViewController = {
         BookingController.getBookingbyId(req, res, data => {        
             res.render('history', { isLogin: req.session.login, username: req.session.user, data})
         });
-        
     },
+    notesPage: (req, res) => {
+        res.render('notes',
+            { 
+                isLogin: req.session.login, 
+                username: req.session.user  
+            });
+    }
 }
 
 module.exports = {ViewController}

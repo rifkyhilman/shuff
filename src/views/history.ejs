@@ -4,24 +4,40 @@
     <div class="section-header">
       <h2>History Booking</h2>
     </div>
-    <% data.forEach((row, index) => { %>    
-        <div class="card rounded-3 mb-4">
-            <div class="card-body p-4">
-                <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-3 col-lg-3 col-xl-3">
-                    <p class="lead fw-normal mb-2"><%= row.event_name %></p>
-                    <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
+    <div class="m-5">
+        <% data.forEach((row, index) => { %>    
+            <div class="card rounded-3 mb-4">
+                <div class="card-body p-4">
+                    <div class="row d-flex justify-content-between align-items-center">
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                        <h2 class="lead fw-normal mb-2"><%= row.event_name %></h2>
+                        <p><span class="text-muted">date booking: </span> <%=row.date_booking%> </p>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                        <h2 class="lead fw-normal mb-2">Package</h2>
+                        <p class="mb-0"><%= row.package_booking%></p>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                        <h2 class="lead fw-normal mb-2">Payment</h2>
+                        <p class="mb-0"><%= row.payment_1 %></p>
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                        <h2 class="lead fw-normal mb-2 text-center">Status</h2>
+                        <% if(row.status == "success"){%>
+                            <div class="bg-success text-light text-center">
+                                <p><%= row.status%></p>
+                            </div>
+                        <%} else {%>
+                            <div class="bg-danger text-light text-center">
+                                <p><%= row.status%></p>
+                            </div>
+                        <%}%>
+                    </div>
+                    </div>
                 </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                    <h5 class="mb-0"><%= row.payment_1 %></h5>
-                </div>
-                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                    <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-                </div>
-                </div>
-            </div>
-            </div>                
-    <% }) %>
+                </div>                
+        <% }) %>
+    </div>
 </section>
 
 <%- include('layout/footer') %>

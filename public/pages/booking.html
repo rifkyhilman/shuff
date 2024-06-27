@@ -24,24 +24,35 @@
     <!-- Begin Main Content -->
     <section class="main-content">
       <div class="section-header">
-        <h2>Todo List</h2>
+        <h2>Notes</h2>
       </div>
       <div class="form-todo">
 
       <form action="#" id="form">
+        <div class="col form-group">
+          <label for="text">Name</label>
+          <input 
+            class="form-control"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="write your name"
+            required
+          />
+        </div>
           <div class="col form-group">
-            <label for="text">Enter what you plan</label>
+            <label for="text">Enter what you note</label>
             <input 
               class="form-control"
               type="text"
               name="item"
               id="item"
-              placeholder="write your plan here"
+              placeholder="write your note here"
               required
             />
           </div>
           <div class="col form-group">
-            <label for="date">Enter the plan date</label>
+            <label for="date">Enter the note date</label>
             <input class="form-control" type="date" id="date" name="date" required>
           </div>
           <div class="submit">
@@ -50,7 +61,7 @@
       </form>
       <div class="container-order">
         <div class="section-header-booking">
-          <h2>plan List</h2>
+          <h2>Notes List</h2>
         </div>   
         <div class="list-order" id="orders"></div>
       </div>
