@@ -29,7 +29,28 @@ const ViewController = {
                 isLogin: req.session.login, 
                 username: req.session.user  
             });
-    }
+    },
+    aboutPage: (req, res) => {
+        res.render('about',
+            { 
+                isLogin: req.session.login, 
+                username: req.session.user  
+            });
+    },
+    contactPage: (req, res) => {
+        res.render('contact',
+            { 
+                isLogin: req.session.login, 
+                username: req.session.user  
+            });
+    },
+    portofolioPage: (req, res) => {
+        res.render('portofolio',
+            { 
+                isLogin: req.session.login, 
+                username: req.session.user  
+            });
+    },
 }
 
 module.exports = {ViewController}

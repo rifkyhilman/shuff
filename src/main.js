@@ -36,7 +36,10 @@ app.get('/login',authMiddleware.authLogin, ViewController.loginPage);
 app.get('/register',authMiddleware.authLogin, ViewController.registerPage);
 app.get('/booking',authMiddleware.authUser, ViewController.bookingPage);
 app.get('/history',authMiddleware.authUser, ViewController.historyPage);
+app.get('/about',ViewController.aboutPage);
+app.get('/contact',ViewController.contactPage);
 app.get('/notes',ViewController.notesPage);
+app.get('/portofolio',ViewController.portofolioPage);
 
 
 //route controller
