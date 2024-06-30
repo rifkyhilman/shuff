@@ -9,6 +9,11 @@ const ViewController = {
                 username: req.session.user  
             })
     },
+    adminPage: (req, res) => {
+        BookingController.getBooking(req, res, data => {        
+            res.render('admin', { isLogin: req.session.login, username: req.session.user, data})
+        });
+    },
     loginPage: (req,res)=>{
         res.render('login', { isLogin: req.session.login })
     },
@@ -16,19 +21,27 @@ const ViewController = {
         res.render('register', { isLogin: req.session.login })
     },
     bookingPage: (req,res)=>{
-        res.render('booking', { isLogin: req.session.login, username: req.session.user})
+        res.render('booking', { isLogin: req.session.login, username: req.session.user, booking: req.params.booking})
     },
     historyPage: (req,res)=>{
-        BookingController.getBookingbyId(req, res, data => {        
+        BookingController.getBookingHistory(req, res, data => {        
             res.render('history', { isLogin: req.session.login, username: req.session.user, data})
         });
     },
-    notesPage: (req, res) => {
-        res.render('notes',
-            { 
-                isLogin: req.session.login, 
-                username: req.session.user  
-            });
+    oderPage: (req, res) => {
+        BookingController.getBookingbyUser(req, res, data => {        
+            res.render('order', { isLogin: req.session.login, username: req.session.user, data})
+        });
+    },
+    checkoutPage: (req, res) => {
+        BookingController.getBookingById(req, res, data => {
+            res.render('checkout',
+                { 
+                    isLogin: req.session.login, 
+                    username: req.session.user ,
+                    data 
+                });
+        })
     },
     aboutPage: (req, res) => {
         res.render('about',
@@ -41,11 +54,28 @@ const ViewController = {
         res.render('contact',
             { 
                 isLogin: req.session.login, 
-                username: req.session.user  
+                username: req.session.user,
+                message: ''
             });
     },
     portofolioPage: (req, res) => {
         res.render('portofolio',
+            { 
+                isLogin: req.session.login, 
+                username: req.session.user  
+            });
+    },
+    blogPage: (req, res) => {
+        res.render('blog',
+            { 
+                isLogin: req.session.login, 
+                username: req.session.user  
+            });
+    },
+    blog01Page: (req, res) => {
+        const id = req.params.id
+
+        res.render('detailBlog/blog0'+id,
             { 
                 isLogin: req.session.login, 
                 username: req.session.user  

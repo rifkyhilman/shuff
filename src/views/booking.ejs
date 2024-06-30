@@ -6,8 +6,7 @@
       <h2>Booking Your Event</h2>
     </div>
     <div class="form-todo">
-
-    <form action="/booking" id="form" method="post">
+    <form action="<%=baseURL%>/booking" id="form" method="post">
         <div class="col form-group">
           <label for="eventName">Name of the event</label>
           <input 
@@ -20,16 +19,15 @@
           />
         </div>
         <div class="col form-group">
-          <label for="date">Event date</label>
-          <input class="form-control" type="date" id="date" name="date" required>
+          <label for="date_event">Event date</label>
+          <input type="text" class="form-control datepicker" placeholder="dd-mm-yyyy" name="date_event" required>
         </div>
         <div class="col form-group">
             <label for="package">Select the package</label>
             <select class="form-select" name="package" aria-label="Default select example">
-                <!-- <option selected>select package</option> -->
-                <option value="Free plan">Free plan</option>
-                <option value="Bussines plan">Bussines plan</option>
-                <option value="Developer plan">Developer plan</option>
+              <option <%=booking == 1 ? 'selected' : '' %> value="Big Package">Big Package</option>
+              <option <%=booking == 2 ? 'selected' : '' %> value="Medium Package">Medium Package</option>
+                <option <%=booking == 3 ? 'selected' : '' %> value="Small Package">Small Package</option>
             </select>
         </div>
         <div class="submit">
@@ -38,5 +36,23 @@
     </form>
   </div>
   </section>
+
+  <script>
+    async function getBookingDate() {
+      var datesForDisable = [];
+      const api = await fetch("<%=baseURL%>/getBookingEvent");
+      const data  = await api.json();
+      datesForDisable = data.map(i => i.date_event);
+
+      $('.datepicker').datepicker({
+        startDate: new Date(),
+        format: 'dd-mm-yyyy',
+        autoclose: true,
+        todayHighlight: true,
+        datesDisabled: datesForDisable
+      });
+    }
+    getBookingDate();
+  </script>
 
 <%- include('layout/footer') %>

@@ -157,7 +157,7 @@ a:hover {
     margin: 120px 0 120px 0 ;
 }
 
-.post-img img {
+.post-img-detail img {
   width: 100%;
 }
 
@@ -184,7 +184,19 @@ a:hover {
   .blog .blog-details .content {
     margin-top: 20px;
   }
+
+  .blog .blog-details .content p {
+    line-height: 2;
+    font-size: 1.2rem;
+    text-align: justify;
+  }
   
+
+  .blog .blog-details .content li {
+    line-height: 2;
+    font-size: 1.2rem;
+  }
+
   .blog .blog-details .content h3 {
     font-size: 22px;
     margin-top: 30px;

@@ -11,7 +11,7 @@
                     <div class="row d-flex justify-content-between align-items-center">
                     <div class="col-md-3 col-lg-3 col-xl-3">
                         <h2 class="lead fw-normal mb-2"><%= row.event_name %></h2>
-                        <p><span class="text-muted">date booking: </span> <%=row.date_booking%> </p>
+                        <p><span class="text-muted">Booking event : <%=row.date_event%> </span></p>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                         <h2 class="lead fw-normal mb-2">Package</h2>
@@ -19,7 +19,7 @@
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                         <h2 class="lead fw-normal mb-2">Payment</h2>
-                        <p class="mb-0"><%= row.payment_1 %></p>
+                        <p class="mb-0"><%= row.payment_1 + row.payment_2 %></p>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                         <h2 class="lead fw-normal mb-2 text-center">Status</h2>
@@ -33,11 +33,32 @@
                             </div>
                         <%}%>
                     </div>
+                    
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-center">
+                        <button type="button" class="btn-trash" onclick="onDelete(<%= row.id_booking %>, 'cancel', false)"></button>
+                    </div>
+                    
                     </div>
                 </div>
-                </div>                
+            </div>                
         <% }) %>
     </div>
 </section>
+<script>
+      async function onDelete(id) {
+            const response = await fetch("<%=baseURL%>/deleteBooking", {
+                method: "POST",
+                body: JSON.stringify({id}),
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+            });
+
+            if(response.status == 200) {
+                window.location.reload()
+            }
+    }
+</script>
 
 <%- include('layout/footer') %>

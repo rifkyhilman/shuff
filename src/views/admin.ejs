@@ -1,0 +1,70 @@
+<%- include('layout/header') %>
+<div class="table-responsive">
+<table class="table table-bordered m-5">
+    <thead>
+      <tr class="table-dark" >
+        <th scope="col">No</th>
+        <th scope="col">Username</th>
+        <th scope="col">Address</th>
+        <th scope="col">Package Booking</th>
+        <th scope="col">Payment 1</th>
+        <th scope="col">Payment 2</th>
+        <th scope="col">Date Event</th>
+        <th scope="col">Date Booking</th>
+        <th scope="col">Paid off</th>
+        <th scope="col">Status</th>
+        <th scope="col">Price</th>
+        <th scope="col">Image DP</th>
+        <th scope="col">Image FP</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <% data.forEach((row, index) => { %>                    
+            <tr class="<%= row.paid_off === 'true' ? 'table-success' : 'table-danger' %>">
+              <th scope="row"><%= index + 1 %></th>
+                <td><%= row.username %></td>
+                <td><%= row.address %></td>
+                <td><%= row.package_booking %></td>
+                <td><%= row.payment_1 %></td>
+                <td><%= row.payment_2 %></td>
+                <td><%= row.date_event %></td>
+                <td><%= row.date_booking %></td>
+                <td><%= row.paid_off %></td>
+                <td><%= row.status %></td>
+                <td><%= row.price %></td>
+                <td><img src='<%= baseURL + "/uploads/" + row.img_dp %>' class="img-thumbnail"/></td>
+                <td><img src='<%= baseURL + "/uploads/" + row.img_fp %>' class="img-thumbnail"/></td>
+                <td>
+                    <% if(row.status == "pending"){%>
+                        <button class="btn btn-primary btn-sm" onclick="onChange(<%= row.id_booking %>, 'ongoing', true)">Ongoing</button>
+                    <%} else {%> 
+                        <button class="btn btn-success btn-sm" onclick="onChange(<%= row.id_booking %>, 'success', true)">Success</button>
+                    <%}%>
+                </td>
+            </tr>
+            <% }) %>
+    </tbody>
+  </table>
+</div>
+<script>
+        async function onChange(id, newStatus, newPaid) {
+            const response = await fetch("<%=baseURL%>/updateStatus", {
+                method: "POST",
+                body: JSON.stringify({
+                    id,
+                    newStatus,
+                    newPaid 
+                }),
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+            });
+
+            if(response.status == 200) {
+                window.location.reload()
+            }
+    }
+</script>

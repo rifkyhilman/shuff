@@ -1,86 +1,86 @@
 dataPorto = [
   {
-    imgurl: "../images/360_F_535473874_OWCa2ohzXXNZgqnlzF9QETsnbrSO9pFS.jpg",
-    filter: "branding",
+    imgurl: "../images/portofolio/preweding-1.jpg",
+    filter: "prewedding",
   },
   {
-    imgurl: "../images/portofolio image/1.jpeg",
+    imgurl: "../images/portofolio/product-1.jpg",
     filter: "product",
   },
   {
-    imgurl: "../images/portofolio image/14.jpg",
-    filter: "branding",
+    imgurl: "../images/portofolio/preweding-2.jpg",
+    filter: "prewedding",
   },
   {
-    imgurl: "../images/Tanpa Judul.jpeg",
+    imgurl: "../images/portofolio/product-2.jpg",
     filter: "product",
   },
   {
-    imgurl: "../images/img2.jpg",
-    filter: "app",
+    imgurl: "../images/portofolio/nature-1.jpg",
+    filter: "nature",
   },
   {
-    imgurl: "../images/portofolio image/13.jpg",
-    filter: "books",
+    imgurl: "../images/portofolio/concert-1.jpg",
+    filter: "concert",
   },
   {
-    imgurl: "../images/aboutUs.jpeg",
-    filter: "app",
+    imgurl: "../images/portofolio/nature-2.jpg",
+    filter: "nature",
   },
   {
-    imgurl: "../images/2213.jpg",
-    filter: "books",
+    imgurl: "../images/portofolio/concert-2.jpg",
+    filter: "concert",
   },
   {
-    imgurl: "../images/3333.jpg",
-    filter: "branding",
+    imgurl: "../images/portofolio/preweding-3.jpg",
+    filter: "prewedding",
   },
   {
-    imgurl: "../images/Hero.jpg",
-    filter: "app",
+    imgurl: "../images/portofolio/nature-3.jpeg",
+    filter: "nature",
   },
   {
-    imgurl: "../images/portofolio image/10.jpg",
-    filter: "app",
+    imgurl: "../images/portofolio/nature-4.jpg",
+    filter: "nature",
   },
   {
-    imgurl: "../images/portofolio image/2.jpg",
-    filter: "branding",
+    imgurl: "../images/portofolio/preweding-4.jpg",
+    filter: "prewedding",
   },
   {
-    imgurl: "../images/portofolio image/3.jpg",
-    filter: "branding",
+    imgurl: "../images/portofolio/preweding-5.jpg",
+    filter: "prewedding",
   },
   {
-    imgurl: "../images/portofolio image/4.jpg",
-    filter: "branding",
+    imgurl: "../images/portofolio/preweding-6.jpg",
+    filter: "prewedding",
   },
   {
-    imgurl: "../images/portofolio image/5.jpg",
-    filter: "books",
+    imgurl: "../images/portofolio/concert-3.jpg",
+    filter: "concert",
   },
   {
-    imgurl: "../images/portofolio image/6.jpeg",
-    filter: "books",
+    imgurl: "../images/portofolio/concert-4.jpg",
+    filter: "concert",
   },
   {
-    imgurl: "../images/portofolio image/7.png",
-    filter: "books",
+    imgurl: "../images/portofolio/concert-5.jpg",
+    filter: "concert",
   },
   {
-    imgurl: "../images/portofolio image/8.jpg",
-    filter: "app",
+    imgurl: "../images/portofolio/nature-5.jpg",
+    filter: "nature",
   },
   {
-    imgurl: "../images/portofolio image/15.jpg",
-    filter: "app",
+    imgurl: "../images/portofolio/nature-6.jpeg",
+    filter: "nature",
   },
   {
-    imgurl: "../images/portofolio image/11.jpeg",
+    imgurl: "../images/portofolio/product-3.jpg",
     filter: "product",
   },
   {
-    imgurl: "../images/portofolio image/12.jpg",
+    imgurl: "../images/portofolio/product-4.jpg",
     filter: "product",
   },
 ];
@@ -92,9 +92,6 @@ document.getElementById("photos").innerHTML = dataPorto.map(data => {
     <div class="col-xl-4 col-md-6 portfolio-item filter-${data.filter}">
       <div class="portfolio-wrap">
         <a href="${data.imgurl}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="${data.imgurl}" class="img-fluid" alt="err[i]"></a>
-        <div class="portfolio-info">
-          <h4>${data.filter}</h4>
-        </div>
       </div>
     </div>
     `
