@@ -25,7 +25,9 @@ const { authMiddleware } = require("./ authMiddleware");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"))
 
-app.locals.baseURL = "http://localhost:4000"
+// app.locals.baseURL = "http://localhost:4000"
+app.locals.baseURL = "https://shuff-production.up.railway.app"
+
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
